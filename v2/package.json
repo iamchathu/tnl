@@ -8,6 +8,7 @@
   "dependencies": {
     "express": "2.5.8",
     "jade": "*",
+    "ejs": "0.8.x",
     "request":"2.21.0",
     "socket.io":"0.9.x"
   },

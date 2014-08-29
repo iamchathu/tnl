@@ -1,29 +1,20 @@
-// ==========================================
-// Ideamart Group Simulator
-// ==========================================
-// Author   : Pasindu De Silva
-// License  : MIT (c) Pasindu De Silva
-// Github   : http://github.com/pasindud
-// ==========================================
 
 var express = require('express'),
     app = module.exports = express.createServer();
     io = require('socket.io').listen(app, { log: false });
 
 
-var appid=1000,appw=5000;
+  //app.use(express.static('public'));
 
-// all environments
-
-app.configure(function() {
+  app.set('view engine', 'ejs');
   app.set("views", __dirname + "/views");
-  app.set("view engine", "jade");
+  // app.set("view engine", "jade");
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
   app.use(app.router);
-  return app.use(express["static"](__dirname + "/public"));
-});
+  app.use(express["static"](__dirname + "/public"));
+
 
 app.configure("development", function() {
   return app.use(express.errorHandler({
@@ -56,11 +47,11 @@ io.sockets.on('connection', function (socket) {
 * @description - Render the simulator
 */
 app.get('/', function(req,res){
-  res.render('index',{})
+  res.render('ejs/index',{})
 });
 
 app.get('/admin', function(req,res){
-   res.render('admin',{});
+   res.render('ejs/admin',{});
 });
 
 
@@ -68,3 +59,15 @@ var port = process.env.PORT || 8080;
 
 app.listen(port);
 console.log("Express server listening on port %d in mode", app.address().port);
+
+
+
+// app.configure(function() {
+//   app.set("views", __dirname + "/views");
+//   app.set("view engine", "jade");
+//   app.use(express.bodyParser());
+//   app.use(express.methodOverride());
+//   app.use(express.cookieParser());
+//   app.use(app.router);
+//   return app.use(express["static"](__dirname + "/public"));
+// });
