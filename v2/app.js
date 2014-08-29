@@ -44,6 +44,11 @@ io.sockets.on('connection', function (socket) {
       sk.emit('module_audio_stream_on', data); 
   });
 
+  socket.on('admin_enable_module_audiostream_slef', function (data) {
+      sk.broadcast.emit('set_enable_module_audiostream_slef',data);
+      sk.emit('set_enable_module_audiostream_slef', data); 
+  });
+
 
 });
 

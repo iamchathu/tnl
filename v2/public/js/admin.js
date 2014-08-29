@@ -1,6 +1,6 @@
 
  var socket = io.connect('localhost');
-
+   
  socket.emit('working', { });
 
 
@@ -13,12 +13,14 @@ var livemodule="";
 $( "#audioStream" ).click(function() {
 
 
-	socket.emit('admin_enable_module_audiostream', {});
+    	var player =  document.getElementById('player');
+	socket.emit('admin_enable_module_audiostream', {  });
   	if (document.getElementById("audioStream").checked) {
   		// run the audio thing	
   		livemodule= audioStream;
   	}
 });
+
 
 
   socket.on('broadcast', function (data) {

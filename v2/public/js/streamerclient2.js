@@ -1,41 +1,61 @@
+/**
+ * Created by Michael on 31/12/13.
+ */
 
-var MicrophoneAudioSource = function() {};
+/**
+ * The *AudioSource object creates an analyzer node, sets up a repeating function with setInterval
+ * which samples the input and turns it into an FFT array. The object has two properties:
+ * streamData - this is the Uint8Array containing the FFT data
+ * volume - cumulative value of all the bins of the streaData.
+ *
+ * The MicrophoneAudioSource uses the getUserMedia interface to get real-time data from the user's microphone. Not used currently but included for possible future use.
+ */
+var MicrophoneAudioSource = function() {
 
+};
+var self ;
 var SoundCloudAudioSource = function(player) {
-     console.log(self);
-     window.self = this;
      self = this;
-    // var analyser;
-    // var audioCtx = new (window.AudioContext || window.webkitAudioContext);
-    // analyser = audioCtx.createAnalyser();
-    // analyser.fftSize = 256;
+    var analyser;
+    var audioCtx = new (window.AudioContext || window.webkitAudioContext);
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
         
-    // var source = audioCtx.createMediaElementSource(player);
-    // source.connect(analyser);
-    // analyser.connect(audioCtx.destination);
-    var sampleAudioStream = function() {
-            console.log("k");
-        // analyser.getByteFrequencyData(self.streamData);
+    var source = audioCtx.createMediaElementSource(player);
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+    // var sampleAudioStream = function() {
+    //         console.log("k");
+    //     analyser.getByteFrequencyData(self.streamData);
+    //     // calculate an overall volume value
+    //     var total = 0;
+    //     for (var i = 0; i < 80; i++) { // get the volume from the first 80 bins, else it gets too loud with treble
+    //         total += self.streamData[i];
+    //     }
+    //         //console.log(total);
+    //     self.volume = total;
+    // };
+
+     analyser.getByteFrequencyData(self.streamData);
         // calculate an overall volume value
         var total = 0;
         for (var i = 0; i < 80; i++) { // get the volume from the first 80 bins, else it gets too loud with treble
-           self.streamData[i] =0;
             total += self.streamData[i];
         }
-           console.log(total);
+            //console.log(total);
         self.volume = total;
-    };
- //  setInterval(sampleAudioStream, 2000);
+
+     //setInterval(sampleAudioStream, 2000);
     // public properties and methods
     this.volume = 0;
     this.streamData = new Uint8Array(128);
     this.playStream = function(streamUrl) {
         // streamUrl = "http://192.99.240.255:8010/live.mp3";
         // get the input stream from the audio element
-        // player.addEventListener('ended', function(){
-            // self.directStream('coasting');
-        // });
-        // player.setAttribute('src', streamUrl);
+        player.addEventListener('ended', function(){
+            self.directStream('coasting');
+        });
+        player.setAttribute('src', streamUrl);
        // player.play();
     }
 };
@@ -107,7 +127,8 @@ var Visualizer = function() {
         return [offsetX, offsetY];
     };
     Polygon.prototype.drawPolygon = function() {
-        var bucket = Math.ceil(  window.datatio.lenghtt/tiles.length*this.num);
+
+        var bucket = Math.ceil(audioSource.streamData.length/tiles.length*this.num);
         var val = Math.pow((audioSource.streamData[bucket]/255),2)*255;
         val *= this.num > 42 ? 1.1 : 1;
         // establish the value for this tile
@@ -283,6 +304,7 @@ var Visualizer = function() {
         bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
         var r, g, b, a;
         var val = audioSource.volume/1000;
+        val =16.361;
         r = 200 + (Math.sin(val) + 1) * 28;
         g = val * 2;
         b = val * 8;
@@ -298,7 +320,7 @@ var Visualizer = function() {
             Math.round(b) + ", 0.4)"); // edges are reddish
 
         bgCtx.fillStyle = grd;
-        bgCtx.fill();
+        //bgCtx.fill();
         /*
          // debug data
          bgCtx.font = "bold 30px sans-serif";
@@ -327,9 +349,9 @@ var Visualizer = function() {
 
             tileSize = fgCanvas.width > fgCanvas.height ? fgCanvas.width / 25 : fgCanvas.height / 25;
 
-            drawBg();
+            //drawBg();
             makePolygonArray();
-            makeStarArray()
+            //makeStarArray()
         }
     };
 
@@ -343,17 +365,17 @@ var Visualizer = function() {
         fgCtx.clearRect(-fgCanvas.width, -fgCanvas.height, fgCanvas.width*2, fgCanvas.height *2);
         sfCtx.clearRect(-fgCanvas.width/2, -fgCanvas.height/2, fgCanvas.width, fgCanvas.height);
 
-        stars.forEach(function(star) {
-            star.drawStar();
-        });
+        // stars.forEach(function(star) {
+        //     star.drawStar();
+        // });
         tiles.forEach(function(tile) {
             tile.drawPolygon();
         });
-        tiles.forEach(function(tile) {
-            if (tile.highlight > 0) {
-                tile.drawHighlight();
-            }
-        });
+        // tiles.forEach(function(tile) {
+        //     if (tile.highlight > 0) {
+        //         tile.drawHighlight();
+        //     }
+        // });
         // debug
         /* fgCtx.font = "bold 24px sans-serif";
          fgCtx.fillStyle = 'grey';
@@ -396,18 +418,6 @@ var Visualizer = function() {
         window.addEventListener('resize', this.resizeCanvas, false);
     };
 };
-
-
-window.onload = function init() {
-
-
-
-
-
-};
-
-
-
 
 
 

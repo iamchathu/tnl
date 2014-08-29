@@ -1,41 +1,40 @@
 
 var MicrophoneAudioSource = function() {};
 
+var self ;
 var SoundCloudAudioSource = function(player) {
-     console.log(self);
-     window.self = this;
      self = this;
-    // var analyser;
-    // var audioCtx = new (window.AudioContext || window.webkitAudioContext);
-    // analyser = audioCtx.createAnalyser();
-    // analyser.fftSize = 256;
+    var analyser;
+    var audioCtx = new (window.AudioContext || window.webkitAudioContext);
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
         
-    // var source = audioCtx.createMediaElementSource(player);
-    // source.connect(analyser);
-    // analyser.connect(audioCtx.destination);
+    var source = audioCtx.createMediaElementSource(player);
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
     var sampleAudioStream = function() {
             console.log("k");
-        // analyser.getByteFrequencyData(self.streamData);
+        analyser.getByteFrequencyData(self.streamData);
         // calculate an overall volume value
         var total = 0;
         for (var i = 0; i < 80; i++) { // get the volume from the first 80 bins, else it gets too loud with treble
-           self.streamData[i] =0;
             total += self.streamData[i];
         }
-           console.log(total);
-        self.volume = total;
+        self.volume = total;    
+
+       socket.emit('admin_enable_module_audiostream_slef', { volume:total , streamData:self.streamData , lenght :   self.streamData.length });
     };
- //  setInterval(sampleAudioStream, 2000);
+   setInterval(sampleAudioStream, 20);
     // public properties and methods
     this.volume = 0;
     this.streamData = new Uint8Array(128);
     this.playStream = function(streamUrl) {
         // streamUrl = "http://192.99.240.255:8010/live.mp3";
         // get the input stream from the audio element
-        // player.addEventListener('ended', function(){
-            // self.directStream('coasting');
-        // });
-        // player.setAttribute('src', streamUrl);
+        player.addEventListener('ended', function(){
+            self.directStream('coasting');
+        });
+        player.setAttribute('src', streamUrl);
        // player.play();
     }
 };
@@ -107,7 +106,8 @@ var Visualizer = function() {
         return [offsetX, offsetY];
     };
     Polygon.prototype.drawPolygon = function() {
-        var bucket = Math.ceil(  window.datatio.lenghtt/tiles.length*this.num);
+
+        var bucket = Math.ceil(audioSource.streamData.length/tiles.length*this.num);
         var val = Math.pow((audioSource.streamData[bucket]/255),2)*255;
         val *= this.num > 42 ? 1.1 : 1;
         // establish the value for this tile
@@ -185,7 +185,7 @@ var Visualizer = function() {
             offset = this.calculateOffset(this.vertices[i]);
             this.ctx.lineTo (this.vertices[i][0] + offset[0], this.vertices[i][1] + offset[1]);
         }
-        //this.ctx.closePath();
+        this.ctx.closePath();
         var a = this.highlight/100;
         this.ctx.strokeStyle =  "rgba(255, 255, 255, " + a + ")";
         this.ctx.lineWidth = 1;
@@ -400,8 +400,40 @@ var Visualizer = function() {
 
 window.onload = function init() {
 
+    var visualizer = new Visualizer();
+    var player =  document.getElementById('player');
+    // var uiUpdater = new UiUpdater();
+    // var loader = new SoundcloudLoader(player,uiUpdater);
+
+    var audioSource = new SoundCloudAudioSource(player);
+    
+
+    visualizer.init({
+        containerId: 'visualizer',
+        audioSource: audioSource
+    });
 
 
+    //uiUpdater.toggleControlPanel();
+    
+    window.addEventListener("keydown", keyControls, false);
+     
+    function keyControls(e) {
+        switch(e.keyCode) {
+            case 32:
+                // spacebar pressed
+                loader.directStream('toggle');
+                break;
+            case 37:
+                // left key pressed
+                loader.directStream('backward');
+                break;
+            case 39:
+                // right key pressed
+                loader.directStream('forward');
+                break;
+        }   
+    }
 
 
 };
