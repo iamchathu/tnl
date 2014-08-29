@@ -7,8 +7,13 @@
    //broadcast(data);
  });
 
+  socket.on('dj_module', function (data) {
+  			console.log(data);
+ });
+
+
   socket.on('adminin', function (data) {
-  			console.log("done done done");
+        console.log("done done done");
  });
 
 

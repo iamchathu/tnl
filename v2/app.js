@@ -44,6 +44,11 @@ io.sockets.on('connection', function (socket) {
       sk.emit('module_audio_stream_on', data); 
   });
 
+   socket.on('dj_module', function (data) {
+      sk.broadcast.emit('send_emit',data);
+      sk.emit('send_emit', data); 
+  });
+
 
 });
 
