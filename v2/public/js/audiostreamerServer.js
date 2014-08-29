@@ -400,41 +400,7 @@ var Visualizer = function() {
 
 window.onload = function init() {
 
-    var visualizer = new Visualizer();
-    var player =  document.getElementById('player');
-    // var uiUpdater = new UiUpdater();
-    // var loader = new SoundcloudLoader(player,uiUpdater);
-
-    var audioSource = new SoundCloudAudioSource(player);
-    
-
-    visualizer.init({
-        containerId: 'visualizer',
-        audioSource: audioSource
-    });
-
-
-    //uiUpdater.toggleControlPanel();
-    
-    window.addEventListener("keydown", keyControls, false);
-     
-    function keyControls(e) {
-        switch(e.keyCode) {
-            case 32:
-                // spacebar pressed
-                loader.directStream('toggle');
-                break;
-            case 37:
-                // left key pressed
-                loader.directStream('backward');
-                break;
-            case 39:
-                // right key pressed
-                loader.directStream('forward');
-                break;
-        }   
-    }
-
+  
 
 };
 
