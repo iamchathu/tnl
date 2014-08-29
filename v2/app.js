@@ -29,15 +29,19 @@ io.sockets.on('connection', function (socket) {
 
 
   socket.on('working', function (data) {
-      console.log("working done");
     // sk.broadcast.emit('tabs',data);
     // sk.emit('tabs', data); 
   });
 
     socket.on('adminon', function (data) {
-      console.log("working done");
       sk.broadcast.emit('adminin',data);
       sk.emit('adminin', data); 
+  });
+
+   socket.on('admin_enable_module_audiostream', function (data) {
+      console.log("admin_enable_module_audiostream");
+      sk.broadcast.emit('module_audio_stream_on',data);
+      sk.emit('module_audio_stream_on', data); 
   });
 
 
