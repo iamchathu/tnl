@@ -3,6 +3,10 @@ var express = require('express'),
 app = module.exports = express.createServer();
 io = require('socket.io').listen(app, { log: false });
 var fs = require('fs');
+//var redis = require("redis");
+
+//var pub = redis.createClient();
+  //pub.publish("messages", JSON.stringify({type: "foo", content: "bar"}));
 
   //app.use(express.static('public'));
 
@@ -23,15 +27,13 @@ var fs = require('fs');
     }));
   });
 
+  var GobaleConnNum=0;
   var sk='';
   io.sockets.on('connection', function (socket) {
-    sk=socket;
+      sk=socket;
+      GobaleConnNum++;
 
-
-    socket.on('working', function (data) {
-    // sk.broadcast.emit('tabs',data);
-    // sk.emit('tabs', data); 
-  });
+    sk.emit('GobaleConnNum',GobaleConnNum);
 
     socket.on('adminon', function (data) {
       sk.broadcast.emit('adminin',data);
@@ -60,6 +62,18 @@ var fs = require('fs');
           console.log(data);
         }
       });
+
+      fs.readFile("data/data.json", 'utf8', function (err, fileData) {
+        if (err) {
+          console.log('Error: ' + err);
+          return;
+        }else{
+          sk.emit('adminLogonKeyDetailsChoregpy', JSON.parse(fileData)); 
+          //console.log(data);
+        }
+      });
+
+
     });
 
 
@@ -84,6 +98,17 @@ var fs = require('fs');
     socket.on('dj_module_send_color', function (data) {
       sk.broadcast.emit('dj_module_get_color',data);
       sk.emit('dj_module_get_color', data); 
+    });
+
+
+    socket.on('chorgrapyingPropagate', function (data) {
+      sk.broadcast.emit('chorgrapyingPropagate_Client',data);
+      sk.emit('chorgrapyingPropagate_Client', data); 
+    });
+
+    socket.on('chorgrapyingRub', function (data) {
+      sk.broadcast.emit('chorgrapyingRub_Client',data);
+      sk.emit('chorgrapyingRub_Client', data); 
     });
 
 
