@@ -1,5 +1,5 @@
-var socket = io.connect('hacknrollkiss.herokuapp.com');
-//var socket = io.connect('localhost');
+//var socket = io.connect('hacknrollkiss.herokuapp.com');
+var socket = io.connect('localhost');
 var audioOn = false;
 var GobaleConnNumNo;
 var chorData ;
@@ -7,28 +7,20 @@ var runningPattern ;
 var da=[];
 socket.emit('working', { });
 
-
-socket.on('broadcast', function (data) {
-   //broadcast(data);
- });
-
 socket.on('GobaleConnNum', function (data) {
   GobaleConnNumNo = data;
 });
-
 
 socket.on('chorgrapyingPropagate_Client', function (data) {
   console.log(data);
   chorData = data;
 });
 
-
 socket.on('chorgrapyingRub_Client', function (data) {
  console.log(data);
  runningPattern =data;
  settingRuningPattt();
 });
-
 
 var chorDef ;
 var chorDefCh ;
