@@ -234,6 +234,84 @@
 				</div>
 
 			</div>
+			<div class="modal fade" id="edit-model">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title">Edit template</h4>
+						</div>
+						<div class="modal-body">
+							<div class="panel panel-warning">
+
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-lg-10 col-lg-offset-2 ">
+											<label for="name">Name</label>
+											<input type="text" class="form-control" id="name" placeholder="Template name">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-lg-10 col-lg-offset-2 ">
+											<label for="">Ratio</label>
+											<input type="text" class="form-control" id="ratio" placeholder="Ratio">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-lg-4 col-lg-offset-2 ">
+											<label for="">Color 1</label>
+											<div class="input-group demo2">
+												<input type="text" id="color1" class="form-control" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" placeholder="Color 1"/>
+												<span class="input-group-addon" ><i></i></span>
+											</div>
+											<script>
+												$(function(){
+													$('.demo2').colorpicker();
+												});
+											</script>
+										</div>
+										<div class="col-lg-4 col-lg-offset-2">
+											<label for="">Persentage 1</label>
+											<input type="number" id="per1" class="form-control" max="100" min="0" placeholder="Persentage 1"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-lg-4 col-lg-offset-2 ">
+											<label for="">Color 2</label>
+											<div class="input-group demo2">
+												<input type="text" id="color2" class="form-control" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" placeholder="Color 1"/>
+												<span class="input-group-addon" ><i></i></span>
+											</div>
+										</div>
+										<div class="col-lg-4 col-lg-offset-2">
+											<label for="">Percentage 2</label>
+											<input type="number" id="per2" class="form-control" max="100" min="0" placeholder="Persentage 2"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-lg-4 col-lg-offset-2 ">
+											<label for="">Color 3</label>
+											<div class="input-group demo2">
+												<input type="text" id="color3" class="form-control" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" placeholder="Color 3"/>
+												<span class="input-group-addon" ><i></i></span>
+											</div>
+										</div>
+										<div class="col-lg-4 col-lg-offset-2">
+											<label for="">Percentage 3</label>
+											<input type="number" id="per3" class="form-control" max="100" min="0" placeholder="Persentage 3"/>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
+							<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-stats"></span> Edit template</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
 
 			<!-- Bootstrap JavaScript -->
 			<script src="js/bootstrap.min.js"></script>
