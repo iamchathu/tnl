@@ -35,12 +35,14 @@ var chorDefCh ;
 var RuninGoop = 0, howManyTimes ;
 var currentChLen;
 function settingRuningPattt(){
+    $(document.body).css("background-color",  "#fff" );
+    $(document.body).html("");
     chorDef = chorData.choregraphy[runningPattern];
     chorDefCh=chorDef.choregraphy;
     howManyTimes = chorDef.total_time_cyles;
     RuninGoop=0;
-  currentChLen= chorDef.choregraphy.length;
-  --currentChLen;
+    currentChLen= chorDef.choregraphy.length;
+    --currentChLen;
     StartAnimationBackG ();
 } 
 
