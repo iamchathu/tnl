@@ -20,6 +20,7 @@ var SoundCloudAudioSource = function(player) {
             total += self.streamData[i];
         }
         self.volume = total;    
+            console.log(total);
        socket.emit('admin_enable_module_audiostream_slef', { volume:total , streamData:self.streamData , lenght :   self.streamData.length });
     };
    setInterval(sampleAudioStream, 20);

@@ -49,6 +49,7 @@ var fs = require('fs');
     socket.on('admin_enable_module_audiostream_slef', function (data) {
       sk.broadcast.emit('set_enable_module_audiostream_slef',data);
       sk.emit('set_enable_module_audiostream_slef', data); 
+        // console.log(data);
     });
 
     socket.on('adminLogon', function (data) {

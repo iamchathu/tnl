@@ -1,4 +1,5 @@
-var socket = io.connect('hacknrollkiss.herokuapp.com');
+//var socket = io.connect('hacknrollkiss.herokuapp.com');
+var socket = io.connect('localhost');
 var audioOn = false;
 var GobaleConnNumNo;
 var chorData ;
@@ -117,7 +118,7 @@ function StartAnimationBackGa () {
 
 window.datati ={};
     socket.on('set_enable_module_audiostream_slef', function (data) {
-      console.log(data);
+     
 
       window.datatio.volume = data.volume;
       window.datatio.streamData = data.streamData;
