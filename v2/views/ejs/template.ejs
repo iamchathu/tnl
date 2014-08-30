@@ -1,0 +1,70 @@
+<h1>Create Templetes</h1>
+<button type="button" class="btn btn-primary" data-toggle="modal" href='#add-template'>Add templete</button>
+
+<div class="container">
+	  
+			<h3 >Added templete</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Template Name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Template 1</td>
+						<td><button type="button" class="btn btn-default">Edit</button></td>
+					</tr>
+				</tbody>
+			</table>
+</div>
+
+<div class="modal fade" id="add-template">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times; Close</button>
+			</div>
+			<div class="modal-body">
+					<legend>Add Template</legend>
+				
+					<div class="form-group">
+						<label for="">Name</label>
+						<input type="text" class="input-medium" id="name" placeholder="Template name">
+					</div>
+					<div class="form-group">
+						<label for="">Ratio</label>
+						<input type="text" class="input-medium form-control" id="ratio" placeholder="Ratio">
+					</div>
+					<table class="table">
+						<tbody>
+							<tr>
+								<td><input type="text" class="input-medium form-control"  id="color1" placeholder="color 1" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" ></td>
+								<td><input type="number" class="input-medium form-control" id="per1" placeholder="Persentage 1" min="0" max="100"></td>
+							</tr>
+							<tr>
+								<td><input type="text" class="input-medium form-control"  id="color2" placeholder="color 1" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" ></td>
+								<td><input type="number" class="input-medium form-control" id="per2" placeholder="Persentage 2" min="0" max="100"></td>
+							</tr>
+							<tr>
+								<td>
+									<div class="input-group">
+		    							<input type="text" value="" id="color3" class="input-medium form-control" placeholder="color 3" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"/>
+									</div>
+								</td>
+								<td><input type="number" class="input-medium form-control" id="per3" placeholder="Persentage 3" min="0" max="100"></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+
+			<hr/>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
