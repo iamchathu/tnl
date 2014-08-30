@@ -15,6 +15,7 @@ function inter(){
       for (var i = chorgrapydata.templates.length - 1; i >= 0; i--) {
         var qo = '<a type="button" dataId="'+i+'" class="btn btn-warning btn-sm edittemp" data-toggle="modal" href="#edit-model"> ';
          qo =qo+'<span class="glyphicon glyphicon-pencil"></span dataId="'+i+'" class="edittemp"> Edit Template</a></td>';
+         qo =qo+'<td><a href="#" class="chorgrapyingPropagate" >Propagate</a></td><td><a href="#" class="chorgrapyingRub" >Excute </a></td>';
         $('#templatingtable tr:last').after('<tr><td>'+chorgrapydata.templates[i].name+'</td><td>'+qo+'</td></tr>');
       };
       acttachClickEditTemp ();
@@ -74,17 +75,21 @@ function acttachClickEditTempcamedit () {
        }
          $('.demo2').colorpicker();
       });
+
+
+$( ".chorgrapyingPropagate" ).click(function() {
+    console.log("asd");
+  socket.emit('chorgrapyingPropagate', chorgrapydata );
+});
+
+$( ".chorgrapyingRub" ).click(function() {
+  socket.emit('chorgrapyingRub', 0 );
+});
+
 }
 
 
 
-$( "#chorgrapyingPropagate" ).click(function() {
-  socket.emit('chorgrapyingPropagate', chorgrapydata );
-});
-
-$( "#chorgrapyingRub" ).click(function() {
-  socket.emit('chorgrapyingRub', 0 );
-});
 
 var livemodule="";
 

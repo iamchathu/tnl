@@ -21,9 +21,8 @@ socket.on('adminLogonKeyDetails', function (data) {
 function propagetekeys (data) {
     if (data.length!=0) {
         $(".shortcuts").html("");
-    };
+    }
      var k =1;
-
      for (i = 0;i < data.length; i++) {
          var source   = $("#entry-template").html();
          var template = Handlebars.compile(source);
