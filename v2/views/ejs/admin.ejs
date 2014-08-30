@@ -1,68 +1,44 @@
-
 <span href="adminon"></span>
-
-
-
 <div class="bs-example">
-
- <link rel="stylesheet" type="text/css" href="/stylesheets/styleaudio.css">
- <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
- <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-<script type="text/javascript" src="/js/jquery.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap-alert.js"></script>
-<script type="text/javascript" src="/js/bootstrap-transition.js"></script>
-<script type="text/javascript" src="/js/bootstrap-modal.js"></script>
-<script type="text/javascript" src="/js/bootstrap-collapse.js"></script>
-<script type="text/javascript" src="/js/bootstrap-button.js"></script>
-<script type="text/javascript" src="/js/bootstrap-tab.js"></script>
-<script type="text/javascript" src="/js/toastr.min.js"></script>
-
-<%- include chorgrapying.ejs %>
-
-<div class="container">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/styleaudio.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap-alert.js"></script>
+  <script type="text/javascript" src="/js/bootstrap-transition.js"></script>
+  <script type="text/javascript" src="/js/bootstrap-modal.js"></script>
+  <script type="text/javascript" src="/js/bootstrap-collapse.js"></script>
+  <script type="text/javascript" src="/js/bootstrap-button.js"></script>
+  <script type="text/javascript" src="/js/bootstrap-tab.js"></script>
+  <script type="text/javascript" src="/js/toastr.min.js"></script>
+  <%- include chorgrapying.ejs %>
+  <div class="container">
     
-<div class="bs-docs-example">
-            <ul id="myTab" class="nav nav-tabs">
-              <li class="active"><a href="#home" data-toggle="tab">Modules</a></li>
-              <li class=""><a href="#profile" data-toggle="tab">Profile</a></li>
-         
-            </ul>
-            <div id="myTabContent" class="tab-content">
-              <div class="tab-pane fade  active in" id="home">
-
-		<%- include moduletable.ejs %>
-              </div>
-              <div class="tab-pane fade" id="profile">
-                <p>
-		<%- include chorgrapyingTab.ejs %>
-                </p>
-              </div>
-              <div class="tab-pane fade" id="dropdown1">
-                <p></p>
-              </div>
-              <div class="tab-pane fade" id="dropdown2">
-                <p></p>
-              </div>
-            </div>
-          </div>
-
-
-          
-      <!--   <div id="visualizer"></div>
-        
-            <audio id="player"  src="http://192.99.240.255:8010/live.mp3" controls="" autoplay="" preload autobuffer></audio>
- -->
-
-
+    <div class="bs-docs-example">
+      <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">Modules</a></li>
+        <li class=""><a href="#profile" data-toggle="tab">Profile</a></li>
+        <li class=""><a href="#createtemtab" data-toggle="tab">Create Template</a></li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade  active in" id="home">
+          <%- include moduletable.ejs %>
+        </div>
+        <div class="tab-pane fade" id="profile">
+          <%- include chorgrapyingTab.ejs %>
+        </div>
+        <div class="tab-pane fade" id="createtemtab">
+          <!-- <%- include chorgrapyingTab.ejs %> -->
+        </div>
+      </div>
+    </div>
+    <!--   <div id="visualizer"></div>
+  <audio id="player"  src="http://192.99.240.255:8010/live.mp3" controls="" autoplay="" preload autobuffer></audio>
+  -->
 </div>
-
-	<!-- Audio Streaming Section -->
-  <!-- <audio id="player"  src="http://192.99.240.255:8010/live.mp3" controls="" autoplay="" preload autobuffer></audio> -->
-
+<!-- Audio Streaming Section -->
+<!-- <audio id="player"  src="http://192.99.240.255:8010/live.mp3" controls="" autoplay="" preload autobuffer></audio> -->
 <script type="text/javascript" src="/js/audiostreamerServer.js"></script>
 <script type="text/javascript" src="/js/admin.js"></script>
 <script type="text/javascript" src="/js/module-color-dj.js"></script>
 <!-- <script type="text/javascript" src="/js/module_create_template.js"></script> -->
-
-
-
