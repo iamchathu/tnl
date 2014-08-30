@@ -1,5 +1,5 @@
  var socket = io.connect('localhost');
-
+ var shortcutKeys = {}; 
  socket.emit('working', { });
 
 
@@ -7,10 +7,16 @@
    //broadcast(data);
  });
 
+
   socket.on('dj_module', function (data) {
-  			console.log(data);
+        console.log(data);
  });
 
+
+  socket.on('dj_module_get_color', function (data) {
+    console.log("kkkkkkkkkkkkkkkkk")
+      $(document.body).css("background-color",data)
+ });
 
   socket.on('adminin', function (data) {
         console.log("done done done");
