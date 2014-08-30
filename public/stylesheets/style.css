@@ -1,0 +1,14 @@
+th:first-child{
+	width:30%;
+}
+html, body {
+  height: 100%;
+}
+
+#screen{
+
+	height: 100%;
+	
+	width:100%;
+}
+
