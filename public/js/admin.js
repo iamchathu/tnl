@@ -4,6 +4,7 @@ var socket = io.connect('hacknrollkiss.herokuapp.com');
 var chorgrapydata ;  
 socket.emit('working', { });
 
+$('audio').AudioPlayerV1('pause');
 
 $( "#adminon" ).click(function() {
   socket.emit('adminon', { });
@@ -21,6 +22,8 @@ $( "#chorgrapyingRub" ).click(function() {
 var livemodule="";
 
 $( "#enableaudion" ).click(function() {
+  
+document.getElementById('player').play();
 
   var visualizer = new Visualizer();
   var player =  document.getElementById('player');
