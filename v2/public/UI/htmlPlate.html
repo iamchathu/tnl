@@ -37,9 +37,6 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Modules</a></li>
-						<li><a href="#">Profile</a></li>
-						<li><a href="#">Create Templete</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
@@ -49,9 +46,193 @@
 			</nav>
 			<div class="row">
 				<div class="container">
-
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="active"><a href="#modules" data-toggle="tab">Modules</a></li>
+						<li><a href="#profile" data-toggle="tab">Profile</a></li>
+						<li><a href="#create-template" data-toggle="tab">Create Template</a></li>
+						<li><a href="#scrach-pad" data-toggle="tab">Scrach Pad</a></li>
+					</ul>
 					
 				</div>
+				<div class="tab-content">
+					<div class="container tab-pane active" id="modules">
+						<div class="container">
+
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Audio Stream</h3>
+								</div>
+								<div class="panel-body">
+									<form class="form-horizontal">
+										<fieldset>
+											<div class="form-group">
+												<label for="audiostreamurl" class="col-lg-2 control-label"> </label>
+												<div class="col-lg-10">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> Enable
+														</label>
+													</div>
+													<input type="url" class="form-control" id="audiostreamurl" placeholder="Stream URL">
+												</div>
+											</div>
+											<div class="col-lg-10 col-lg-offset-2">
+												<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-volume-up"></span> Enable Audio Stream</button>
+											</div>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+
+						</div>
+						<div class="container">
+
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Color DJ</h3>
+								</div>
+								<div class="panel-body">
+									<form class="form-horizontal">
+										<fieldset>
+											<div class="form-group">
+												<div class="col-lg-4 col-lg-offset-2 ">
+													<input type="text" class="form-control" id="sc1" placeholder="Key to press" pattern="^[a-zA-Z]{1,1}$">
+												</div>
+												<div class="col-lg-4 col-lg-offset-2">
+													<div class="input-group demo2">
+														<input type="text" id="c1" class="form-control" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"/>
+														<span class="input-group-addon" ><i></i></span>
+													</div>
+													<script>
+														$(function(){
+															$('.demo2').colorpicker();
+														});
+													</script>
+												</div>
+												<div class="col-lg-10 col-lg-offset-2 text-right">
+													<button class="btn btn-primary"><span class="glyphicon glyphicon-volume-up"></span> Add Shoutcut</button>
+													<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+												</div>
+											</div>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="container tab-pane" id="create-template">
+
+						<div class="panel panel-success">
+							<div class="panel-heading">
+								<h3 class="panel-title">Available Templates</h3>
+							</div>
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>Template Name</th>
+												<th width="20%"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Template Name 1</td>
+												<td><a type="button" class="btn btn-warning btn-sm" data-toggle="modal" href='#edit-model'> <span class="glyphicon glyphicon-pencil"></span> Edit Template</a></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<h3 class="panel-title">Add template</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<div class="col-lg-10 col-lg-offset-2 ">
+										<label for="name">Name</label>
+										<input type="text" class="form-control" id="name" placeholder="Template name">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-10 col-lg-offset-2 ">
+										<label for="">Ratio</label>
+										<input type="text" class="form-control" id="ratio" placeholder="Ratio">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-4 col-lg-offset-2 ">
+										<label for="">Color 1</label>
+										<div class="input-group demo2">
+											<input type="text" id="color1" class="form-control" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" placeholder="Color 1"/>
+											<span class="input-group-addon" ><i></i></span>
+										</div>
+										<script>
+											$(function(){
+												$('.demo2').colorpicker();
+											});
+										</script>
+									</div>
+									<div class="col-lg-4 col-lg-offset-2">
+										<label for="">Persentage 1</label>
+										<input type="number" id="per1" class="form-control" max="100" min="0" placeholder="Persentage 1"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-4 col-lg-offset-2 ">
+										<label for="">Color 2</label>
+										<div class="input-group demo2">
+											<input type="text" id="color2" class="form-control" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" placeholder="Color 1"/>
+											<span class="input-group-addon" ><i></i></span>
+										</div>
+									</div>
+									<div class="col-lg-4 col-lg-offset-2">
+										<label for="">Percentage 2</label>
+										<input type="number" id="per2" class="form-control" max="100" min="0" placeholder="Persentage 2"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-4 col-lg-offset-2 ">
+										<label for="">Color 3</label>
+										<div class="input-group demo2">
+											<input type="text" id="color3" class="form-control" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" placeholder="Color 3"/>
+											<span class="input-group-addon" ><i></i></span>
+										</div>
+									</div>
+									<div class="col-lg-4 col-lg-offset-2">
+										<label for="">Percentage 3</label>
+										<input type="number" id="per3" class="form-control" max="100" min="0" placeholder="Persentage 3"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-10 col-lg-offset-2 text-center">
+										<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-stats"></span> Create template</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="container tab-pane" id="scrach-pad">
+						<div class="jumbotron">
+						<div class="container">
+							<h1>Scrach Pad for Color DJ</h1>
+							<p>Press the predifined keys</p>
+							<p>
+								<a class="btn btn-primary btn-lg" href="#modules" data-toggle="tab">Add keys now</a>
+							</p>
+						</div>
+					</div>
+					</div>
+				</div>
+
 			</div>
 
 			<!-- Bootstrap JavaScript -->
