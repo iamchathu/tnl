@@ -108,7 +108,7 @@ var Visualizer = function() {
     };
     Polygon.prototype.drawPolygon = function() {
         var bucket = Math.ceil(  window.datatio.lenghtt/tiles.length*this.num);
-        var val = Math.pow((audioSource.streamData[bucket]/255),2)*255;
+        var val = Math.pow((  window.datatio.streamData[bucket]/255),2)*255;
         val *= this.num > 42 ? 1.1 : 1;
         // establish the value for this tile
         if (val > this.high) {

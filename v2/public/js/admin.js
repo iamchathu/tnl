@@ -10,7 +10,7 @@ $( "#adminon" ).click(function() {
 
 var livemodule="";
 
-$( "#audioStream" ).click(function() {
+$( "#enableaudion" ).click(function() {
 
 
   var visualizer = new Visualizer();
@@ -28,11 +28,11 @@ $( "#audioStream" ).click(function() {
 
 
 	socket.emit('admin_enable_module_audiostream', {  });
-  	if (document.getElementById("audioStream").checked) {
+  	// if (document.getElementById("audioStream").checked) {
   		// run the audio thing	
 
-  		livemodule= audioStream;
-  	}
+  		livemodule= "audioStream";
+  	//}
 });
 
 

@@ -1,0 +1,50 @@
+ {
+	"templates":[
+	{  "name": "one" ,
+		"ratio":[
+				{
+					"color":"#000",
+					"num":60,
+				},{
+					"color":"#ccc",
+					"num":20,
+				},{
+					"color":"#aaa",
+					"num":20,
+				}
+			] 
+
+	},{ "name": "second",
+		"ratio":[
+				{
+					"color":"#000",
+					"num":60,
+				},{
+					"color":"#ccc",
+					"num":20,
+				},{
+					"color":"#aaa",
+					"num":      20                                                              ,
+				}
+			] 
+	}
+	],
+	"choregraphy":[
+
+		{
+			"name":"oneblue" , 
+			"choregraphy":[
+				{
+					"templates_name": "second",
+					"delay":1
+				},
+				{
+					"templates_name":"one",
+					"delay":3
+				}
+			],
+			"type":"forever",
+			"othertype_For10Se":45
+		}
+	]
+}

@@ -13,7 +13,6 @@ var SoundCloudAudioSource = function(player) {
     source.connect(analyser);
     analyser.connect(audioCtx.destination);
     var sampleAudioStream = function() {
-            console.log("k");
         analyser.getByteFrequencyData(self.streamData);
         // calculate an overall volume value
         var total = 0;

@@ -1,8 +1,8 @@
 
 var express = require('express'),
-    app = module.exports = express.createServer();
-    io = require('socket.io').listen(app, { log: false });
-
+app = module.exports = express.createServer();
+io = require('socket.io').listen(app, { log: false });
+var fs = require('fs');
 
   //app.use(express.static('public'));
 
@@ -16,19 +16,19 @@ var express = require('express'),
   app.use(express["static"](__dirname + "/public"));
 
 
-app.configure("development", function() {
-  return app.use(express.errorHandler({
-    dumpExceptions: true,
-    showStack: true
-  }));
-});
+  app.configure("development", function() {
+    return app.use(express.errorHandler({
+      dumpExceptions: true,
+      showStack: true
+    }));
+  });
 
-var sk='';
-io.sockets.on('connection', function (socket) {
-  sk=socket;
+  var sk='';
+  io.sockets.on('connection', function (socket) {
+    sk=socket;
 
 
-  socket.on('working', function (data) {
+    socket.on('working', function (data) {
     // sk.broadcast.emit('tabs',data);
     // sk.emit('tabs', data); 
   });
@@ -36,21 +36,59 @@ io.sockets.on('connection', function (socket) {
     socket.on('adminon', function (data) {
       sk.broadcast.emit('adminin',data);
       sk.emit('adminin', data); 
-  });
+    });
 
-   socket.on('admin_enable_module_audiostream', function (data) {
+    socket.on('admin_enable_module_audiostream', function (data) {
       console.log("admin_enable_module_audiostream");
       sk.broadcast.emit('module_audio_stream_on',data);
       sk.emit('module_audio_stream_on', data); 
-  });
+    });
 
-  socket.on('admin_enable_module_audiostream_slef', function (data) {
+    socket.on('admin_enable_module_audiostream_slef', function (data) {
       sk.broadcast.emit('set_enable_module_audiostream_slef',data);
       sk.emit('set_enable_module_audiostream_slef', data); 
+    });
+
+    socket.on('adminLogon', function (data) {
+      var file = 'keys.json';
+      fs.readFile(file, 'utf8', function (err, fileData) {
+        if (err) {
+          console.log('Error: ' + err);
+          return;
+        }else{
+          sk.emit('adminLogonKeyDetails', JSON.parse(fileData)); 
+          console.log(data);
+        }
+      });
+    });
+
+
+    socket.on('dj_module', function (data) {
+      sk.broadcast.emit('send_emit',data);
+      sk.emit('send_emit', data); 
+    });
+
+
+    socket.on('dj_module_save', function (data) {
+      var outputFilename = 'keys.json';
+      fs.writeFile(outputFilename, JSON.stringify(data, null, 4), function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log("JSON saved to " + outputFilename);
+        }
+      });
+    });
+
+
+    socket.on('dj_module_send_color', function (data) {
+      sk.broadcast.emit('dj_module_get_color',data);
+      sk.emit('dj_module_get_color', data); 
+    });
+
+
+
   });
-
-
-});
 
 /*
 * @description - Render the simulator
@@ -60,7 +98,7 @@ app.get('/', function(req,res){
 });
 
 app.get('/admin', function(req,res){
-   res.render('ejs/admin',{});
+ res.render('ejs/admin',{});
 });
 
 
