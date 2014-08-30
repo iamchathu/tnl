@@ -1,4 +1,4 @@
-var socket = io.connect('localhost');
+var socket = io.connect('hacknrollkiss.herokuapp.com');
 var audioOn = false;
 var GobaleConnNumNo;
 var chorData ;
