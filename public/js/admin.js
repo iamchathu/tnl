@@ -1,6 +1,6 @@
 
-var socket = io.connect('localhost');
-//var socket = io.connect('hacknrollkiss.herokuapp.com');
+//var socket = io.connect('localhost');
+var socket = io.connect('hacknrollkiss.herokuapp.com');
 var chorgrapydata ;  
 socket.emit('working', { });
 

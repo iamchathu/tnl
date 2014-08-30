@@ -1,5 +1,5 @@
-var socket = io.connect('localhost');
-//var socket = io.connect('hacknrollkiss.herokuapp.com');
+//var socket = io.connect('localhost');
+var socket = io.connect('hacknrollkiss.herokuapp.com');
 
 var tempKeys = [];
 var ShorcutKeyColor =[];
@@ -22,6 +22,7 @@ function propagetekeys (data) {
     if (data.length!=0) {
         $(".shortcuts").html("");
     }
+
      var k =1;
      for (i = 0;i < data.length; i++) {
          var source   = $("#entry-template").html();
