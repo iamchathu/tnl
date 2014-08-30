@@ -1,0 +1,51 @@
+{
+	"templates":[
+	{
+		"name": "one" ,
+		"ratio":[
+		{
+			"color":"#000",
+			"num":50
+			},{
+				"color":"#ccc",
+				"num":50
+			}
+			]
+			},{ "name": "second",
+			"ratio":[
+			{
+				"color":"#aaa",
+				"num":50
+				},{
+					"color":"#fff",
+					"num":50
+				}
+				]
+			}
+			],
+			"choregraphy":[
+			{
+				"name":"oneblue" ,
+				"choregraphy":[
+				{
+					"templates_name": "second",
+					"templates_index":1,
+					"delay":1000
+					},
+					{
+						"templates_name":"one",
+						"templates_index":0,
+						"delay":30
+					}
+					],
+					"type":"forever",
+					"othertype_For10Se":45,
+					"total_time_cyles":40,
+					"advance":[
+					{
+						"type":"module"
+					}
+					]
+				}
+				]
+			}

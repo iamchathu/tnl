@@ -1,0 +1,31 @@
+{
+  "name": "idea-group-sim",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "2.5.8",
+    "jade": "*",
+    "ejs": "0.8.x",
+    "request":"2.21.0",
+    "socket.io":"0.9.x"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "description": "A multi user simulator for ideamart apps",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": "",
+  "keywords": [
+    "ideamart",
+    "telco",
+    "sms"
+  ],
+  "author": "Pasindu De Silva",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}

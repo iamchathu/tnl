@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VIS Color DJ</title>
+
+	<!-- Bootstrap CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap.th.min.css" rel="stylesheet">
+	<link href="css/bootstrap-colorpicker.min.css" rel="stylesheet">
+
+		<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+			<![endif]-->
+		</head>
+		<body>
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">VIS Color DJ</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Modules</a></li>
+						<li><a href="#">Profile</a></li>
+						<li><a href="#">Create Templete</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+			<div class="row">
+				<div class="container">
+
+					<div class="panel panel-primary">
+						<div class="page-header">
+							<h1>Audio Stream</h1>
+						</div>
+						<div class="panel-body">
+							<form class="form-horizontal">
+								<fieldset>
+									<div class="form-group">
+										<label for="audiostreamurl" class="col-lg-2 control-label"> </label>
+										<div class="col-lg-10">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox"> Enable
+												</label>
+											</div>
+											<input type="url" class="form-control" id="audiostreamurl" placeholder="Stream URL">
+										</div>
+									</div>
+									<div class="col-lg-10 col-lg-offset-2">
+										<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-volume-up"></span> Enable Audio Stream</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+
+			</div>
+			<div class="container">
+
+				<div class="panel panel-primary">
+					<div class="page-header">
+						<h1>Color DJ</h1>
+					</div>
+					<div class="panel-body">
+						<form class="form-horizontal">
+							<fieldset>
+								<div class="form-group">
+									<div class="col-lg-4 col-lg-offset-2 ">
+										<input type="text" class="form-control" id="sc1" placeholder="Key to press" pattern="^[a-zA-Z]{1,1}$">
+									</div>
+									<div class="col-lg-4 col-lg-offset-2 ">
+										<div class="input-group demo2">
+											<input type="text" id="c1" class="form-control" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"/>
+											<span class="input-group-addon" ><i></i></span>
+										</div>
+										<script>
+											$(function(){
+												$('.demo2').colorpicker();
+											});
+										</script>
+									</div>
+								</div>
+								<div class="col-lg-10 col-lg-offset-2 text-right">
+									<button class="btn btn-primary"><span class="glyphicon glyphicon-volume-up"></span> Add Shoutcut</button>
+									<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Bootstrap JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-colorpicker.min.js"></script>
+</body>
+</html>
