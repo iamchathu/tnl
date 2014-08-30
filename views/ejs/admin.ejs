@@ -265,41 +265,49 @@
                 <h1>Live video streaming</h1>
 
                 <div id="video-container">
-                    Your friend
-                    <!--<video id="their-video" autoplay class="their-video"></video>-->
-                    <div id="remotes"></div>
-                    <video id="my-video" muted="true" autoplay class="my-video"></video>
-                    Your video
+                    <div>
+                        <label>Your video</label>
+                        <br />
+                        <video id="my-video" muted="true" autoplay class="my-video"></video>
+                        <hr />
+                        <label>Crowd</label>
+                        <br />
+                        <!--<video id="their-video" autoplay class="their-video"></video>-->
+                        <div id="remotes"></div>
+                    </div>
 
                     <!--Steps-->
                     <!--Information to user-->
                     <div>
                         <div id="step1">
-                            <p>Please click 'allow' on the top of the screen so we can access your webcam and microphone for calls</p>
-                            <div id="step1-error">
-                                <p>Failed to acces the webcam and microphone. Make sue to run this demo on an http server and click allow when asked for permission by the browser</p>
-                                <a href="#" id="step1-retry" class="button">Try again</a>
+                            <div id="step1-error row">
+                                <h4><div class="alert alert-danger col-lg-9">Failed to acces the webcam and microphone.</span></h4>
+                                <a href="#" id="step1-retry" class="btn btn-primary col-lg-2" style="float:right">Try again</a>
                             </div>
                         </div>
 
+                        <hr />
+
                         <!--Make calls to others-->
-                        <div id="step2">
-                            <p>Your id: <span id="my-id">...</span>
-                            </p>
-                            <p>Share this id with others so they can call you</p>
-                            <p><span id="subhead">Make a call</span>
+                        <div id="step2 row">
+                            <label class="col-lg-4">Your id:&nbsp;<span id="my-id"></span>
+                                <label class="label label-default">Share this id with others so they connect with you</label>
+                            </label>
+
+                            <div class="col-lg-4">
+                                <label id="subhead" class="col-lg-4">Make a call</label>
+                                <input type="text" class="form-control col-lg-4" placeholder="Call user id..." id="callto-id" />
                                 <br />
-                                <input type="text" placeholder="Call user id..." id="callto-id">
-                                <a href="#" id="make-call">Call</a>
-                            </p>
+                                <a href="#" id="make-call" class="btn btn-primary" style="float:right">Call</a>
+                            </div>
                         </div>
 
                         <!--Call in progress-->
-                        <div id="step3">
-                            <p>Currently in call with <span id="their-id">...</span>
-                            </p>
-                            <p><a href="#" id="end-call">End call</a>
-                            </p>
+                        <div id="step3" class="row">
+                            <label class="col-lg-4">Currently in call with <span id="their-id"></span>
+                            </label>
+                            <br />
+                            <a href="#" id="end-call" class="btn btn-primary" style="float:right">End call</a>
                         </div>
                     </div>
 
