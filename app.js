@@ -97,19 +97,22 @@ var fs = require('fs');
 
 
     socket.on('dj_module_send_color', function (data) {
-      sk.broadcast.emit('dj_module_get_color',data);
-      sk.emit('dj_module_get_color', data); 
+      io.sockets.emit('chorgrapyingRub_Client', data);
+      //sk.broadcast.emit('dj_module_get_color',data);
+      //sk.emit('dj_module_get_color', data); 
     });
 
 
     socket.on('chorgrapyingPropagate', function (data) {
-      sk.broadcast.emit('chorgrapyingPropagate_Client',data);
-      sk.emit('chorgrapyingPropagate_Client', data); 
+      io.sockets.emit('chorgrapyingPropagate_Client', data);
+      //sk.broadcast.emit('chorgrapyingPropagate_Client',data);
+      //sk.emit('chorgrapyingPropagate_Client', data); 
     });
 
     socket.on('chorgrapyingRub', function (data) {
-      sk.broadcast.emit('chorgrapyingRub_Client',data);
-      sk.emit('chorgrapyingRub_Client', data); 
+      io.sockets.emit('chorgrapyingRub_Client', data);
+      //sk.broadcast.emit('chorgrapyingRub_Client',data);
+      //sk.emit('chorgrapyingRub_Client', data); 
     });
 
 
