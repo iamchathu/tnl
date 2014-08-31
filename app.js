@@ -83,6 +83,11 @@ var fs = require('fs');
       sk.emit('send_emit', data); 
     });
 
+    socket.on('admin_module_colordj_features', function (data) {
+      sk.broadcast.emit('admin_module_colordj_features_send_emit',data);
+      sk.emit('admin_module_colordj_features_send_emit', data); 
+    });
+
 
     socket.on('dj_module_save', function (data) {
       var outputFilename = 'keys.json';

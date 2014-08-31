@@ -1,0 +1,58 @@
+<div class="container tab-pane" id="crdsource">
+                <h1>Live video streaming</h1>
+
+                <div id="video-container">
+                    <div>
+                        <label>Your video</label>
+                        <br />
+                        <video id="my-video" muted="true" autoplay class="video"></video>
+                        <hr />
+                        <label>Crowd</label>
+                        <br />
+                        <!--<video id="their-video" autoplay class="their-video"></video>-->
+                        <div id="remotes"></div>
+                    </div>
+
+                    <!--Steps-->
+                    <!--Information to user-->
+                    <div>
+                        <div id="step1">
+                            <div id="step1-error row">
+                                <h4><div class="alert alert-danger col-lg-9">Failed to acces the webcam and microphone.</span></h4>
+                                <a href="#" id="step1-retry" class="btn btn-primary col-lg-2" style="float:right">Try again</a>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <!--Make calls to others-->
+                        <div class="row">
+                            <div id="step2" class="col-lg-8">
+                                <label class="col-lg-4">Your id:&nbsp;<span id="my-id"></span>
+                                    <label class="label label-default">Share this id with others to connect</label>
+                                </label>
+
+                                <div class="col-lg-4">
+                                    <label id="subhead" class="col-lg-4">Connect to</label>
+                                    <input type="text" class="form-control col-lg-4" placeholder="Connection id" id="callto-id" />
+                                    <br />
+                                    <a href="#" id="make-call" class="btn btn-primary" style="float:right">Connect</a>
+                                </div>
+                            </div>
+
+
+                            <!--Call in progress-->
+                            <div id="step3" class="col-lg-4">
+                                <label class="col-lg-2">Connected to:&nbsp;</label>
+                                <span id="their-id" class="col-lg-10"></span>
+                                <br />
+                                <a href="#" id="end-call" class="btn btn-primary" style="float:right">Close all connections</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!--End of crowd sourcing-->

@@ -58,6 +58,11 @@
 					"templates_name": "three",
 					"templates_index": 2,
 					"delay": 500
+				},{
+					"templates_name": "one",
+					"templates_index": 2,
+					"delay": 500,
+					"module":"mp4"
 				}
 			],
 			"type": "forever",

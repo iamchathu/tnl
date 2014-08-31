@@ -1,4 +1,6 @@
 var socket = io.connect('hacknrollkiss.herokuapp.com');
+
+
 //var socket = io.connect('localhost');
 var audioOn = false;
 var GobaleConnNumNo;
@@ -101,6 +103,12 @@ function StartAnimationBackGa () {
 
     socket.on('dj_module', function (data) {
       console.log(data);
+    });
+
+    socket.on('admin_module_colordj_features_send_emit', function (data) {
+       $( document.body).fadeOut( "slow", function() {
+          
+        });
     });
 
 

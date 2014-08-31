@@ -259,26 +259,29 @@
                         <p>Press the predifined keys</p>
                         <p>
                             <a class="btn btn-primary btn-lg" href="#modules" data-toggle="tab">Add keys now</a>
+                            <a class="btn btn-primary btn-lg"  id="fadescarach" href="#">Fade In</a>
+                           
                         </p>
                     </div>
                 </div>
             </div>
 
             <!--Crowdsourcing-->
-                  <div class="container tab-pane" id="crdsource">
+                <div class="container tab-pane" id="crdsource">
                 <h1>Live video streaming</h1>
 
                 <div id="video-container">
                     <div>
                         <label>Your video</label>
                         <br />
-                        <video id="my-video" muted="true" autoplay class="my-video"></video>
+                        <video id="my-video" muted="true" autoplay class="video"></video>
                         <hr />
                         <label>Crowd</label>
                         <br />
                         <!--<video id="their-video" autoplay class="their-video"></video>-->
                         <div id="remotes"></div>
                     </div>
+
                     <!--Steps-->
                     <!--Information to user-->
                     <div>
@@ -288,29 +291,38 @@
                                 <a href="#" id="step1-retry" class="btn btn-primary col-lg-2" style="float:right">Try again</a>
                             </div>
                         </div>
-                        <hr />
-                        <!--Make calls to others-->
-                        <div id="step2 row">
-                            <label class="col-lg-4">Your id:&nbsp;<span id="my-id"></span>
-                                <label class="label label-default">Share this id with others so they connect with you</label>
-                            </label>
 
-                            <div class="col-lg-4">
-                                <label id="subhead" class="col-lg-4">Make a call</label>
-                                <input type="text" class="form-control col-lg-4" placeholder="Call user id..." id="callto-id" />
+                        <hr />
+
+                        <!--Make calls to others-->
+                        <div class="row">
+                            <div id="step2" class="col-lg-8">
+                                <label class="col-lg-4">Your id:&nbsp;<span id="my-id"></span>
+                                    <label class="label label-default">Share this id with others to connect</label>
+                                </label>
+
+                                <div class="col-lg-4">
+                                    <label id="subhead" class="col-lg-4">Connect to</label>
+                                    <input type="text" class="form-control col-lg-4" placeholder="Connection id" id="callto-id" />
+                                    <br />
+                                    <a href="#" id="make-call" class="btn btn-primary" style="float:right">Connect</a>
+                                </div>
+                            </div>
+
+
+                            <!--Call in progress-->
+                            <div id="step3" class="col-lg-4">
+                                <label class="col-lg-2">Connected to:&nbsp;</label>
+                                <span id="their-id" class="col-lg-10"></span>
                                 <br />
-                                <a href="#" id="make-call" class="btn btn-primary" style="float:right">Call</a>
+                                <a href="#" id="end-call" class="btn btn-primary" style="float:right">Close all connections</a>
                             </div>
                         </div>
-                        <!--Call in progress-->
-                        <div id="step3" class="row">
-                            <label class="col-lg-4">Currently in call with <span id="their-id"></span>
-                            </label>
-                            <br />
-                            <a href="#" id="end-call" class="btn btn-primary" style="float:right">End call</a>
-                        </div>
+
                     </div>
+
                 </div>
+
             </div>
             <!--End of crowd sourcing-->
         </div>
@@ -344,7 +356,7 @@
             </div>
     </script>
     <script id="entry-template" type="text/x-handlebars-template">
-                   <div class="form-group djpanel">
+                            <div class="form-group djpanel">
                               <div class="col-lg-4 col-lg-offset-2 ">
                                 <input type="text" class="form-control" id="sc{{id}}" 
                                 placeholder="Key to press" 
@@ -355,6 +367,24 @@
                                   <input type="text" id="c{{id}}" class="form-control"
                                      value="{{c}}"
                                       pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"/>
+                                  <span class="input-group-addon" ><i></i></span>
+                                </div>
+                              </div>
+                            </div>
+    </script>    
+
+    <script id="entry-template3" type="text/x-handlebars-template">
+                            <div class="form-group djpanel">
+                              <div class="col-lg-4 col-lg-offset-2 ">
+                                    <label>Template</label>
+                                <input type="text" class="form-control" 
+                                    id="" value="{{s}}">
+                              </div>
+                              <div class="col-lg-4 col-lg-offset-2 ">
+                                <div class="input-group">
+                                    <label>Delay</label>
+                                  <input type="text" id="" 
+                                    class="form-control" value="{{c}}" />
                                   <span class="input-group-addon" ><i></i></span>
                                 </div>
                               </div>
@@ -417,12 +447,6 @@
                                 <div class="col-lg-10 col-lg-offset-2 ">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2 ">
-                                    <label for="">Ratio</label>
-                                    <input type="text" class="form-control" id="ratio" placeholder="Ratio">
                                 </div>
                             </div>
                             <div class="module">

@@ -23,7 +23,7 @@ var SoundCloudAudioSource = function(player) {
             console.log(total);
        socket.emit('admin_enable_module_audiostream_slef', { volume:total , streamData:self.streamData , lenght :   self.streamData.length });
     };
-   setInterval(sampleAudioStream, 20);
+   setInterval(sampleAudioStream, 200);
     // public properties and methods
     this.volume = 0;
     this.streamData = new Uint8Array(128);

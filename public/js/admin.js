@@ -1,6 +1,7 @@
 
 //var socket = io.connect('localhost');
 
+
 var socket = io.connect('hacknrollkiss.herokuapp.com');
 var chorgrapydata ;  
 socket.emit('working', { });
@@ -25,7 +26,7 @@ function inter(){
 function intercamp(){
       for (var i = chorgrapydata.choregraphy.length - 1; i >= 0; i--) {
         var qo = '<a type="button" dataId="'+i+'" class="btn btn-warning btn-sm camedit" data-toggle="modal" href="#camedit-model"> ';
-         qo =qo+'<span class="glyphicon glyphicon-pencil"></span dataId="'+i+'" class="camedit"> Edit Template</a></td>';
+         qo =qo+'<span class="glyphicon glyphicon-pencil"></span dataId="'+i+'" class="camedit"> Edit Light Run</a></td>';
          var q ='<td><a href="#" class="chorgrapyingPropagate">Propagate</a></td><td><a href="#" class="chorgrapyingRub">Excute </a></td>';
        $('#campiagntbale tr:last').after('<tr><td>'+chorgrapydata.choregraphy[i].name+'</td><td>'+q+'</td><td>'+qo+'</td></tr>');
       };
@@ -59,20 +60,37 @@ function acttachClickEditTemp () {
 
 
 function acttachClickEditTempcamedit () {
+
   $( ".camedit" ).click(function() {
       var id = $(this).attr("dataId");
-      $(".ratios").html("");
-       for (var i = 0 ; i< chorgrapydata.choregraphy.choregraphy[id].ratio.length ; i++  ) {
+      $(".module").html("");
+        console.log(id,chorgrapydata.choregraphy[id].choregraphy.length);
+       for (var i = 0 ; i< chorgrapydata.choregraphy[id].choregraphy.length ; i++  ) {
 
-            var source   = $("#entry-template2").html();
-            var template = Handlebars.compile(source);
+            // var source   = $("#entry-template2").html();
+            // var template = Handlebars.compile(source);
 
-            var tcol =  chorgrapydata.templates[id].ratio[i].color;
-            var tp =  chorgrapydata.templates[id].ratio[i].num;
+            // var tcol =  chorgrapydata.templates[id].ratio[i].color;
+            // var tp =  chorgrapydata.templates[id].ratio[i].num;
 
-            var context = {no : i ,  tcol : tcol , tp: tp  };
-            var html    = template(context);
-            $(".module").append(html);
+            // var context = {no : i ,  tcol : tcol , tp: tp  };
+            // var html    = template(context);
+            // $(".module").append(html);
+
+            // Adding the nodes
+           /// for (var i = 0 ;  i < chorgrapydata.choregraphy.choregraphy[id].length  ; i++) {
+                          
+
+                  var source   = $("#entry-template3").html();
+                  var template = Handlebars.compile(source);
+                  var c = chorgrapydata.choregraphy[id].choregraphy[i].templates_name;
+                  var delay = chorgrapydata.choregraphy[id].choregraphy[i].delay;
+                    console.log(delay,c);
+                  var context = {id : i ,  c : delay , s: c  };
+                  var html    = template(context);
+                  $(".module").append(html);
+
+          //  };
 
        }
          $('.demo2').colorpicker();
@@ -127,6 +145,13 @@ socket.on('adminLogonKeyDetailsChoregpy', function (data) {
     inter();
     intercamp();
 });
+       $( "#fadescarach" ).click(function() {
+                                                console.log("fainou");
+                                            socket.emit('admin_module_colordj_features', {});
+
+                                        });
+
+
 
 
 

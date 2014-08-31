@@ -81,3 +81,6 @@ function sendShortcuts() {
     clearShortcutTable();
     
 }
+
+
+                                 
