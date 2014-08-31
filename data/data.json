@@ -4,11 +4,11 @@
 			"name": "one",
 			"ratio": [
 				{
-					"color": "#000",
+					"color": "#118f06",
 					"num": 50
 				},
 				{
-					"color": "#ccc",
+					"color": "#118f06",
 					"num": 50
 				}
 			]
@@ -17,11 +17,24 @@
 			"name": "second",
 			"ratio": [
 				{
-					"color": "#aaa",
+					"color": "#dec800",
 					"num": 50
 				},
 				{
-					"color": "#fff",
+					"color": "#dec800",
+					"num": 50
+				}
+			]
+		},
+		{
+			"name": "three",
+			"ratio": [
+				{
+					"color": "#1581ff",
+					"num": 50
+				},
+				{
+					"color": "#1581ff",
 					"num": 50
 				}
 			]
@@ -39,7 +52,12 @@
 				{
 					"templates_name": "one",
 					"templates_index": 0,
-					"delay": 30
+					"delay": 300
+				},
+				{
+					"templates_name": "three",
+					"templates_index": 2,
+					"delay": 500
 				}
 			],
 			"type": "forever",
