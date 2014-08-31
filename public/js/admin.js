@@ -1,7 +1,7 @@
 
-//var socket = io.connect('localhost');
+var socket = io.connect('localhost');
 
-var socket = io.connect('hacknrollkiss.herokuapp.com');
+//var socket = io.connect('hacknrollkiss.herokuapp.com');
 var chorgrapydata ;  
 socket.emit('working', { });
 
@@ -16,7 +16,7 @@ function inter(){
       for (var i = chorgrapydata.templates.length - 1; i >= 0; i--) {
         var qo = '<a type="button" dataId="'+i+'" class="btn btn-warning btn-sm edittemp" data-toggle="modal" href="#edit-model"> ';
          qo =qo+'<span class="glyphicon glyphicon-pencil"></span dataId="'+i+'" class="edittemp"> Edit Template</a></td>';
-         qo =qo+'<td><a href="#" class="chorgrapyingPropagate" >Propagate</a></td><td><a href="#" class="chorgrapyingRub" >Excute </a></td>';
+        // qo =qo+'<td><a href="#" class="chorgrapyingPropagate" >Propagate</a></td><td><a href="#" class="chorgrapyingRub" >Excute </a></td>';
         $('#templatingtable tr:last').after('<tr><td>'+chorgrapydata.templates[i].name+'</td><td>'+qo+'</td></tr>');
       };
       acttachClickEditTemp ();
@@ -26,7 +26,8 @@ function intercamp(){
       for (var i = chorgrapydata.choregraphy.length - 1; i >= 0; i--) {
         var qo = '<a type="button" dataId="'+i+'" class="btn btn-warning btn-sm camedit" data-toggle="modal" href="#camedit-model"> ';
          qo =qo+'<span class="glyphicon glyphicon-pencil"></span dataId="'+i+'" class="camedit"> Edit Template</a></td>';
-        $('#campiagntbale tr:last').after('<tr><td>'+chorgrapydata.choregraphy[i].name+'</td><td>'+qo+'</td></tr>');
+         var q ='<td><a href="#" class="chorgrapyingPropagate">Propagate</a></td><td><a href="#" class="chorgrapyingRub">Excute </a></td>';
+       $('#campiagntbale tr:last').after('<tr><td>'+chorgrapydata.choregraphy[i].name+'</td><td>'+q+'</td><td>'+qo+'</td></tr>');
       };
      acttachClickEditTempcamedit ();
 }

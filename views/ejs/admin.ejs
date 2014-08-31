@@ -167,7 +167,7 @@
                 </div>
                 <div class="panel panel-success">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Available Campaigns</h3>
+                        <h3 class="panel-title">Available Light Runs</h3>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -175,7 +175,9 @@
                                 <thead>
                                     <tr>
                                         <th>Template Name</th>
-                                        <th width="20%"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -326,26 +328,23 @@
 
 
     <script id="entry-template2" type="text/x-handlebars-template">
-        < div class = "form-group" >
-            < div class = "col-lg-4 col-lg-offset-2 " >
-            < label>< /label>
-                            <div class="input-group demo2">
-                                <input type="text" id="color{{no}}" class="form-control"
-                                value="{{tcol}}"
-                                pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"/ >
-            < span class = "input-group-addon" > < i > < /i></span >
-            < /div>
-                        </div >
-            < div class = "col-lg-4 col-lg-offset-2" >
-            < label>< /label>
-                            <input type="number" id="per{{no}}" class="form-control" max="100" min="0"  value="{{tp}}">
-                        </div >
-            < /div>
+        <div class = "form-group">
+            <div class = "col-lg-4 col-lg-offset-2">
+            <label></label>
+            <div class="input-group demo2">
+            <input type="text" id="color{{no}}" class="form-control" value="{{tcol}}"
+             pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"/>
+            <span class = "input-group-addon"> <i> </i></span>
+            </div></div>
+            <div class = "col-lg-4 col-lg-offset-2">
+            <label></label>
+            <input type="number" id="per{{no}}" class="form-control" max="100" min="0"  value="{{tp}}"></div>
+            </div>
     </script>
     <script id="entry-template" type="text/x-handlebars-template">
                    <div class="form-group djpanel">
                               <div class="col-lg-4 col-lg-offset-2 ">
-       <input type="text" class="form-control" id="sc{{id}}" 
+                                <input type="text" class="form-control" id="sc{{id}}" 
                                 placeholder="Key to press" 
                                   value="{{s}}">
                               </div>
