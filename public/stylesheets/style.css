@@ -1,14 +1,16 @@
-th:first-child{
-	width:30%;
+th:first-child {
+    width: 30%;
 }
-html, body {
-  height: 100%;
+html,
+body {
+    height: 100%;
 }
-
-#screen{
-
-	height: 100%;
-	
-	width:100%;
+#screen {
+    height: 100%;
+    width: 100%;
 }
-
+video {
+    height: 200px;
+    width: 200px;
+    border: 1px solid;
+}

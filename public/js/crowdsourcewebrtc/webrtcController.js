@@ -57,17 +57,32 @@ $(function () {
         $('#step1-error').hide();
         step();
     });
-
+    isZoom = true;
     // Video click event
     $('.video').click(function () {
 
-        $(this).animate({
-            width: '100%'
-        }, 500);
+        if (isZoom) {
+            $(this).animate({
+                width: '1000px'
+            }, 500);
 
-        $(this).animate({
-            height: 'auto'
-        }, 500);
+            $(this).animate({
+                height: '800px'
+            }, 500);
+
+            isZoom = false;
+        } else {
+            $(this).animate({
+                width: '200px'
+            }, 500);
+
+            $(this).animate({
+                height: '200px'
+            }, 500);
+
+            isZoom = true;
+        }
+
     });
 
     // Get started
