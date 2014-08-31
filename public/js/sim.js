@@ -53,7 +53,7 @@ function StartAnimationBackG() {
     var chrAryPoint  =  GobaleConnNumNo %colorArra.length;
     var chColor =   colorArra[chrAryPoint].color ;
     var delay = chorDef.choregraphy[currentChTem].delay ;
-    document.body.requestFullscreen();
+    //document.body.requestFullscreen();
     $(document.body).css("background-color",  chColor );
 
     if (currentChTem==currentChLen) {
